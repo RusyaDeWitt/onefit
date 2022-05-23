@@ -66,7 +66,7 @@ function JobList() {
                     <div className='JobCard-Detail'>
                       <div className='Featured-New'>
                         <h1 className='Vacancy-Company'>{vacancy.company}</h1>
-                        { vacancy.new == false ? <h3></h3> : 
+                        { vacancy.new == false ? <h3 className='inv'></h3> : 
                           <div className='Box'>
                             <div className='New-Box'><h1>NEW!</h1></div>
                             { vacancy.featured == false ? <h3></h3> : <div className='Featured-Box'><h1>FEATURED!</h1></div> }
