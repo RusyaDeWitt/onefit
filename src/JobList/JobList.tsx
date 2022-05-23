@@ -21,10 +21,10 @@ function JobList() {
       addLanguage([])
     }
 
-    const filtered = (arr: string[] ) => {
+    const filtered = (arr_lang: string[], arr_level: string, arr_tools: string[] ) => {
       var temp: boolean = false
       for(let i = 0; i < languagess.length ; i++){
-        if(!arr.includes(languagess[i])){
+        if(!arr_lang.includes(languagess[i]) && !arr_level.includes(languagess[i]) && !arr_tools.includes(languagess[i])){
            return false
         }else{
           temp = true
@@ -81,6 +81,10 @@ function JobList() {
                 {vacancy.languages.map((language, i) => (
                     <button className="LanguageButton" key={i} onClick={() => setLang(language)}>{language}</button>
                   ))}
+                {vacancy.tools.map((tools, i) => (
+                    <button className="LanguageButton" key={i} onClick={() => setLang(tools)}>{tools}</button>
+                  ))}
+                    <button className="LanguageButton" key={i} onClick={() => setLang(vacancy.level)}>{vacancy.level}</button>
               </div>  
             </div>
             ))
@@ -88,7 +92,7 @@ function JobList() {
       </div> 
       : 
       <div className='FilteredList'>  
-      {Vacancies.vacancies.filter(vacancy => filtered(vacancy.languages)).map((vacancy, i) =>(
+      {Vacancies.vacancies.filter(vacancy => filtered(vacancy.languages,vacancy.level,vacancy.tools )).map((vacancy, i) =>(
               <div className='JobCard' key={i}>
                 <div className='Main'>
                   <img src={vacancy.logo}/>
@@ -110,6 +114,10 @@ function JobList() {
                 {vacancy.languages.map((language, i) => (
                     <button className="LanguageButton" key={i} onClick={() => setLang(language)}>{language}</button>
                   ))}
+                {vacancy.tools.map((tools, i) => (
+                    <button className="LanguageButton" key={i} onClick={() => setLang(tools)}>{tools}</button>
+                  ))}
+                    <button className="LanguageButton" key={i} onClick={() => setLang(vacancy.level)}>{vacancy.level}</button>
               </div>  
             </div>
             ))
