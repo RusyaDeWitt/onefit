@@ -1,0 +1,8 @@
+.App {
+
+}
+
+header {
+  background-image: url(/public/images/bg-header-desktop.svg);
+  padding-bottom: 100px;
+}
